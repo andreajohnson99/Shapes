@@ -1,0 +1,51 @@
+import java.util.Scanner;
+import java.lang.Math.*;
+
+//declares a base Shape class with
+// an abstract area() method and a 
+//width attribute. 
+abstract class Shape {
+    int width;
+    abstract void area();
+}
+
+//create two Shape subclasses, Square and Circle,
+// which initialize the width attribute using their
+// constructor, and define their area() methods.
+
+class Square extends Shape{
+    public Square(int width){
+        this.width = width;
+    }
+
+    public void area(){
+        int area = this.width * this.width;
+        System.out.println(area);
+    }
+}
+
+class Circle extends Shape{
+    public Circle(int width){
+        this.width = width;
+    }
+
+    public void area(){
+        System.out.println((double)Math.PI * this.width * this.width);
+    }
+}
+
+//Square class should output the area of the square (the square of the width),
+// while for the Circle, it should output the area of the given circle (PI*width*width). 
+
+public class Program {
+    public static void main(String[ ] args) {
+        Scanner sc = new Scanner(System.in);
+        int x = sc.nextInt();
+        int y = sc.nextInt();
+        
+        Square a = new Square(x);
+        Circle b = new Circle(y);
+        a.area();
+        b.area();
+    }
+}
